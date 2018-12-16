@@ -38,6 +38,11 @@ class File
         return \stat($this->name);
     }
 
+    public function __get($name)
+    {
+        var_dump($name);exit;
+    }
+
     public function getType()
     {
         return new FileType($this->getStat()['mode']);
