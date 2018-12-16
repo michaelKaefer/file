@@ -1,0 +1,42 @@
+{
+  "name": "operating-system/file",
+  "description": "Wrapper for retrieving information about files with native PHP functions",
+  "homepage": "http://github.com/michaelKaefer/file",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael Käfer",
+      "email": "michael.kaefer1@gmx.at"
+    }
+  ],
+  "keywords": [
+    "php",
+    "file",
+    "files",
+    "os",
+    "system",
+    "operating",
+    "wrapper"
+  ],
+  "require": {
+    "php": "^7.1",
+    "operating-system/permission": "^1.0",
+    "operating-system/file-time": "^1.0",
+    "operating-system/file-type": "^1.0",
+    "operating-system/user": "^1.0",
+    "operating-system/group": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "OperatingSystem\\File\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OperatingSystem\\File\\Test\\": "tests/src/"
+    }
+  }
+}
