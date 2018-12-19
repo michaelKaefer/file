@@ -15,7 +15,7 @@ Instantiate file:
 ```php
 use OperatingSystem\File\File;
 
-$file = new File('foo..txt');
+$file = new File('foo.txt');
 ```
 
 Get file information:
