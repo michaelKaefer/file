@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": "^7.1",
-    "operating-system/permission": "^1.0",
+    "operating-system/permission": "^1",
     "operating-system/file-time": "^1.0",
     "operating-system/file-type": "^1.0",
     "operating-system/user": "^1.0",
