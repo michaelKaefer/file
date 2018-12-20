@@ -11,6 +11,7 @@ use OperatingSystem\Permission\Permission;
 use OperatingSystem\FileTime\FileTime;
 use OperatingSystem\User\Factory\UserFactory;
 use OperatingSystem\User\User;
+use Unit\Information\Size;
 
 class File
 {
@@ -64,8 +65,6 @@ class File
         $attributeClasses = [
             FileType::class,
             Permission::class,
-            User::class,
-            Group::class,
             FileTime::class,
         ];
         foreach ($attributeClasses as $attributeClass) {
@@ -146,14 +145,19 @@ class File
     }
 
     /**
-     * @return int
+     * @return Size
+     *
+     * @throws \RuntimeException
      */
-    public function getSize(): int
+    public function getSize(): Size
     {
         if (null === $this->splFileInfo) {
             $this->splFileInfo = new \SplFileInfo($this->name);
         }
-        return $this->splFileInfo->getSize();
+
+        $sizeInByte = $this->splFileInfo->getSize();
+
+        return new Size($sizeInByte);
     }
 
     /**

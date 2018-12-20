@@ -78,8 +78,45 @@ $file->getLastAccessed()->format('d.m.Y H:i:s');    // '16.12.2018 08:00:00'
 $file->getLastModified()->format('d.m.Y H:i:s');    // '16.12.2018 08:00:00'
 $file->getLastChanged()->format('d.m.Y H:i:s');     // '16.12.2018 08:00:00'
 
+// Size
+$file->getSize()->format();                         // '1B'
+$file->getSize()->format('b');                      // '8b'
+$file->getSize()->format('kb');                     // '0.008kb'
+$file->getSize()->format('kb', 1);                  // '0.0kb'
+$file->getSize()->format('kb', 2);                  // '0.01kb'
+$file->getSize()->format('Mb');                     // '0.000008Mb'
+$file->getSize()->format('Gb');                     // '0.000000008Gb'
+$file->getSize()->format('Tb');                     // '0.000000000008Tb'
+$file->getSize()->format('Pb');                     // '0.000000000000008Pb'
+$file->getSize()->format('B');                      // '1B'
+$file->getSize()->format('kB');                     // '0.001kB'
+$file->getSize()->format('MB');                     // '0.000001MB'
+$file->getSize()->format('GB');                     // '0.000000001GB'
+$file->getSize()->format('TB');                     // '0.000000000001TB'
+$file->getSize()->format('PB');                     // '0.000000000000001PB'
+
+$file->getSize()->get('b');                         // 8
+$file->getSize()->get('kb');                        // 0.008
+$file->getSize()->get('Mb');                        // 0.000008
+$file->getSize()->get('Gb');                        // 0.000000008
+$file->getSize()->get('Tb');                        // 0.000000000008
+$file->getSize()->get('Pb');                        // 0.000000000000008
+$file->getSize()->get('B');                         // 1
+$file->getSize()->get('kB');                        // 0.001
+$file->getSize()->get('MB');                        // 0.000001
+$file->getSize()->get('GB');                        // 0.000000001
+$file->getSize()->get('TB');                        // 0.000000000001
+$file->getSize()->get('PB');                        // 0.000000000000001
+
+$size = new Size('1MB');
+$file->getSize()->add($size)->format();             // '1.000001MB'
+$file->getSize()->add($size)->format();             // '2.000001MB'
+$file->getSize()->add($size)->format(null, 1);      // '3.0MB'
+$file->getSize()->subtract($size)->format();        // '2.000001MB'
+$file->getSize()->multiply($size)->format(null, 1); // '16.0TB'
+$file->getSize()->divide($size)->format(null, 1);   // '2.0MB'
+
 // Others
-$file->getSize();                                   // 1
 $file->getInode();                                  // 13245551
 $file->getLinkTarget();
 $file->getSplFileInfo();

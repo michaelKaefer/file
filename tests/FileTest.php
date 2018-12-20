@@ -9,6 +9,7 @@ use OperatingSystem\Group\Group;
 use OperatingSystem\Permission\Permission;
 use OperatingSystem\User\User;
 use PHPUnit\Framework\TestCase;
+use Unit\Information\Size;
 
 class FileTest extends TestCase
 {
@@ -54,7 +55,7 @@ class FileTest extends TestCase
 
     public function testGetSize()
     {
-        $this->assertIsInt($this->file->getSize());
+        $this->assertInstanceOf(Size::class, $this->file->getSize());
     }
 
     public function testGetTimes()
